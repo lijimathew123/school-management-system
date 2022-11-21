@@ -1,0 +1,27 @@
+section{
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    color:white;
+    font-family:Sans-serif;
+
+
+}
+.reg{
+    background-color:#0c1e3b;
+    border-radius:10px;
+    border:2px solid white;
+    padding:15px;
+
+}
+h1{
+color:#525051;
+text-align:center;
+}
+label{
+width:140px;
+display:inline-block;
+}
+button{
+border-radius:10%;
+width:80%;
+}

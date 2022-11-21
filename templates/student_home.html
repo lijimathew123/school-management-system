@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% extends 'ad_home_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+
+</head>
+<body>
+{% block content %}
+    <header class="bg-secondary">
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-dark bg-secondary">
+                    <div class="container-fluid">
+                        <img class="img-fluid rounded-circle" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:5em">
+                        <form class="d-flex" role="search">
+                          <a class="nav-link bg-light" href="/logout">Log Out</a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-4 p-3 w-25" style="background:lightgray">
+                     <div class="list-group" id="list-tab" role="tablist">
+                         <img class="img-fluid rounded-circle w-100" src="{{d.Photo.url}}"><hr><hr>
+                         <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-Profile">Profile</a>
+                         <a class="list-group-item list-group-item-action" id="list-Works-list" data-bs-toggle="list" href="#list-Works" role="tab" aria-controls="list-Works">Works</a>
+                     </div>
+                 </div>
+                 <div class="col-8 p-5 w-75">
+                     <center>
+                     <div class="tab-content container" id="nav-tabContent">
+                        <div class="tab-pane fade show active border border-dark w-75 p-5" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            <form  action="/updation" method = "post">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <label for="inputFName3" class="col-sm-3 col-form-label">First Name</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="fname" onfocus="this.value=''" class="form-control" id="inputFName3" value="{{d.FirstName}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputLName3" class="col-sm-3 col-form-label">Last Name</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="lname" onfocus="this.value=''" class="form-control" id="inputLName3" value="{{d.LastName}}">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputGender3" class="col-sm-3 col-form-label">Gender</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="gender" onfocus="this.value=''" class="form-control" id="inputGender3" value="{{d.Gender}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputAddress3" class="col-sm-3 col-form-label">Address</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="address" onfocus="this.value=''" class="form-control" id="inputAddress3" value="{{d.Address}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputState3" class="col-sm-3 col-form-label">State</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="state" onfocus="this.value=''" class="form-control" id="inputState3" value="{{d.State}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCountry3" class="col-sm-3 col-form-label">Country</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="country" onfocus="this.value=''" class="form-control" id="inputCountry3" value="{{d.Country}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="email" onfocus="this.value=''" class="form-control" id="inputEmail3" value="{{d.Email}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputGuardian3" class="col-sm-3 col-form-label">Guardian's Name</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="gname" onfocus="this.value=''" class="form-control" id="inputGuardian3" value="{{d.Guardian_Name}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPhone13"   class="col-sm-3 col-form-label">Phone Number1</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="phone1" onfocus="this.value=''" class="form-control" id="inputPhone13" title="Error message" pattern="[1-9]{1}[0-9]{9}" value="{{d.PhoneNumber1}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPhone23" class="col-sm-3 col-form-label">Phone Number2</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" onfocus="this.value=''" name="phone2" class="form-control"  id="inputPhone23" title="Error message" pattern="[1-9]{1}[0-9]{9}" value="{{d.PhoneNumber2}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputInterest3" class="col-sm-3 col-form-label">Area of Interest</label>
+                                    <div class="col-sm-9">
+                                      <input type="text"   onfocus="this.value=''" name="interest" class="form-control" id="inputInterest3" value="{{d.Area_of_Interest}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputSubject3" class="col-sm-3 col-form-label">Class</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" onfocus="this.value=''" name="std" class="form-control" id="inputSubject3" value="{{d.Class}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputStudy3" class="col-sm-3 col-form-label">Academic Year</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" onfocus="this.value=''" name="academicyear" class="form-control" id="inputStudy3" value="{{d.Academic_Year}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputUserName3" class="col-sm-3 col-form-label">UserName</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="username" class="form-control" id="inputUserName3" value="{{d.UserName}}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                      <input type="text"  name="password" class="form-control" id="inputPassword3" value="{{d.Password}}">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-4">Update</button>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane fade border border-dark w-75 p-5" id="list-Works" role="tabpanel" aria-labelledby="list-Works-list">
+                            <form action="/works" method="post">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <label for="inputClass9" class="col-sm-3 col-form-label">Class</label>
+                                    <div class="col-sm-9">
+                                        <select name="class6" class="form-control dropdown" id="inputClass9">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>Plus one-Biology science</option>
+                                            <option>Plus one-Computer science</option>
+                                            <option>Plus one-Commerce</option>
+                                            <option>Plus one-Humanities</option>
+                                            <option>Plus two-Biology science</option>
+                                            <option>Plus two-Computer science</option>
+                                            <option>Plus two-Commerce</option>
+                                            <option>Plus two-Humanities</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputSubject9" class="col-sm-3 col-form-label">Subject</label>
+                                    <div class="col-sm-9">
+                                        <select name="subject6" class="form-control dropdown" id="inputSubject9">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>English</option>
+                                            <option>Malayalam</option>
+                                            <option>Hindi</option>
+                                            <option>Physics</option>
+                                            <option>Chemistry</option>
+                                            <option>Computer science</option>
+                                            <option>Biology</option>
+                                            <option>Mathematics</option>
+                                            <option>Statistics</option>
+                                            <option>Accountancy</option>
+                                            <option>Computer Application</option>
+                                            <option>Politics</option>
+                                            <option>Sociology</option>
+                                            <option>Geography</option>
+                                            <option>History</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="w-25 btn-primary" type="submit">Ok</button>
+                            </form>
+                        </div>
+                     </div>
+                     </center>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'admin_login_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin_login Page</title>
+
+
+</head>
+<body>
+ {% block content %}
+    <header>
+          <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
+          <img class="img-fluid rounded-circle p-2" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:80px">
+          <div class="p-3" style="color:white">
+              <h4>JAIN HERITAGE INTERNATIONAL SCHOOL</h4>
+          </div>
+         </nav>
+    </header>
+    <div class="center p-5">
+        <h1>Admin Login Page</h1>
+            <form method="post" action="/log">
+                    {% csrf_token %}
+
+                    <div class="txt_field">
+                        <input type="text" name="username" style="color:white;" required>
+                        <span></span>
+                        <label>Username</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="password" name="password" style="color:white;" required>
+                        <span></span>
+                        <label>Password</label>
+                    </div>
+
+                    <input type="submit" value="Login">
+            </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

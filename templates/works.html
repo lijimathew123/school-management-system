@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+{% extends 'ad_home_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jain heritage</title>
+
+</head>
+<body>
+{% block content %}
+    <header class="bg-secondary">
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-dark bg-secondary">
+                    <div class="container-fluid">
+                        <img class="img-fluid rounded-circle" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:5em">
+                        <form class="d-flex" role="search">
+                          <a class="nav-link bg-light" href="/logout">Log Out</a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-4 p-3 w-25" style="background:lightgray">
+                     <div class="list-group" id="list-tab" role="tablist">
+                         <img class="img-fluid rounded-circle w-100" src="{{d.Photo.url}}"><hr><hr>
+                         <a class="list-group-item list-group-item-action active" id="list-Notes-list" data-bs-toggle="list" href="#list-Notes" role="tab" aria-controls="list-Notes">Notes</a>
+                         <a class="list-group-item list-group-item-action" id="list-Attendance-list" data-bs-toggle="list" href="#list-Attendance" role="tab" aria-controls="list-Attendance">Attendance</a>
+                         <a class="list-group-item list-group-item-action" id="list-Assignment-list" data-bs-toggle="list" href="#list-Assignment" role="tab" aria-controls="list-Assignment">Assignment</a>
+                         <a class="list-group-item list-group-item-action" id="list-Table-list" data-bs-toggle="list" href="#list-Table" role="tab" aria-controls="list-Table">Time Table</a>
+                     </div>
+                 </div>
+                 <div class="col-8 p-5 w-75">
+                     <center>
+                         <div class="tab-content container" id="nav-tabContent">
+                             <div class="tab-pane fade show active w-75 p-3" id="list-Notes" role="tabpanel" aria-labelledby="list-Notes-list">
+                                <table class="table table-bordered border-dark w-50" style="text-align:center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Chapter</th>
+                                            <th scope="col">File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for note in notes %}
+                                        <tr>
+                                            <td>{{note.id}}</td>
+                                            <td>{{note.Chapter}}</td>
+                                            <td>
+                                                <a href="{{note.Note.url}}" download>
+                                                    {{note.Note}}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                             </div>
+                             <div class="tab-pane fade w-75 p-3" id="list-Attendance" role="tabpanel" aria-labelledby="list-Attendance-list">
+                                <div class="row mb-12">
+                                    <table class="table table-bordered border-dark w-50" style="text-align:center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">Month</th>
+                                                <th scope="col">File</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for a in att %}
+                                            <tr>
+                                                <td>{{a.id}}</td>
+                                                <td>{{a.Month}}</td>
+                                                <td>
+                                                    <a href="{{a.Attendance.url}}" download>
+                                                        {{a.Attendance}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                             </div>
+                             <div class="tab-pane fade w-75 p-3" id="list-Assignment" role="tabpanel" aria-labelledby="list-Assignment-list">
+                                <div class="row mb-12">
+                                    <table class="table table-bordered border-dark w-50" style="text-align:center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">File</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for asg in assignments %}
+                                            <tr>
+                                                <td>{{asg.id}}</td>
+                                                <td>
+                                                    <a href="{{asg.Assignment.url}}" download>
+                                                        {{asg.Assignment}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                             </div>
+                             <div class="tab-pane fade w-75 p-3" id="list-Table" role="tabpanel" aria-labelledby="list-Table-list">
+                                <div class="row mb-12">
+                                    <table class="table table-bordered border-dark w-50" style="text-align:center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">File</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for tm in timetable %}
+                                            <tr>
+                                                <td>{{tm.id}}</td>
+                                                <td>
+                                                    <a href="{{tm.TimeTable.url}}" download>
+                                                        {{tm.TimeTable}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                             </div>
+                         </div>
+                     </center>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+{% extends 'anchor_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Home page</title>
+
+
+</head>
+<body style="position:fixed">
+{% block content %}
+    <header class="bg-secondary" style="width:100vm;">
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-dark bg-secondary">
+                    <div class="container-fluid">
+                        <img class="img-fluid rounded-circle" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:5em">
+                        <form class="d-flex" role="search">
+                          <a class="nav-link bg-light" href="/logout">Log Out</a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-4 p-3 w-25" style="background:lightgray;position:relative;box-sizing:border-box;overflow-x:hidden">
+                     <div class="list-group" id="list-tab" role="tablist">
+                         <img class="img-fluid rounded-circle w-100" src="{{d.Photo.url}}"><hr><hr>
+                         <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-Profile">Profile</a>
+                         <a class="list-group-item list-group-item-action" id="list-Note-list" data-bs-toggle="list" href="#list-Note" role="tab" aria-controls="list-Note">Note</a>
+                         <a class="list-group-item list-group-item-action" id="list-Assignment-list" data-bs-toggle="list" href="#list-Assignment" role="tab" aria-controls="list-Assignment">Assignment</a>
+                         <a class="list-group-item list-group-item-action" id="list-Attendance-list" data-bs-toggle="list" href="#list-Attendance" role="tab" aria-controls="list-Attendance">Attendance</a>
+                         <a class="list-group-item list-group-item-action" id="list-TimeTable-list" data-bs-toggle="list" href="#list-TimeTable" role="tab" aria-controls="list-TimeTable">TimeTable</a>
+                         <a class="list-group-item list-group-item-action" id="list-student-list" data-bs-toggle="list" href="#list-student" role="tab" aria-controls="list-student">Students</a>
+                     </div>
+                 </div>
+                 <div class="col-8 p-5 w-75">
+                     <center>
+                     <div class="tab-content container-fluid" id="nav-tabContent">
+                         <div class="tab-pane fade show active border border-dark w-75 p-5" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                             <form action="updation1" method="post">
+                                {% csrf_token %}
+                                 <div class="row mb-3">
+                                     <label for="inputFName3" class="col-sm-3 col-form-label">First Name</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="fname"  onfocus="this.value=''" class="form-control" id="inputFName3" value="{{d.FirstName}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputLName3" class="col-sm-3 col-form-label">Last Name</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="lname"  onfocus="this.value=''" class="form-control" id="inputLName3" value="{{d.LastName}}">
+                                     </div>
+                                 </div>
+
+                                 <div class="row mb-3">
+                                     <label for="inputGender3" class="col-sm-3 col-form-label">Gender</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="gender"  onfocus="this.value=''" class="form-control" id="inputGender3" value="{{d.Gender}}">
+                                     </div>
+                                 </div>
+
+                                 <div class="row mb-3">
+                                     <label for="inputAddress3" class="col-sm-3 col-form-label">Address</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="address"  onfocus="this.value=''" class="form-control" id="inputAddress3" value="{{d.Address}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputState3"  class="col-sm-3 col-form-label">State</label>
+                                     <div class="col-sm-9">
+                                         <input type="text"  name="state" onfocus="this.value=''"  class="form-control" id="inputState3" value="{{d.State}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputCountry3" class="col-sm-3 col-form-label">Country</label>
+                                     <div class="col-sm-9">
+                                         <input type="text"  onfocus="this.value=''"  name="country" class="form-control" id="inputCountry3" value="{{d.Country}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                                     <div class="col-sm-9">
+                                         <input type="text"  onfocus="this.value=''" name="email" class="form-control" id="inputEmail3" value="{{d.Email}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputPhone3" class="col-sm-3 col-form-label">Phone Number</label>
+                                     <div class="col-sm-9">
+                                         <input type="text"  onfocus="this.value=''" name="phone" title="Error message" pattern="[1-9]{1}[0-9]{9}" class="form-control" id="inputPhone3" value="{{d.PhoneNumber}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputQualification3" class="col-sm-3 col-form-label">Qualification</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="qal"  onfocus="this.value=''" class="form-control" id="inputQualification3" value="{{d.Qualification}}">
+                                     </div>
+                                 </div>
+
+                                 <div class="row mb-3">
+                                     <label for="inputSubject3" class="col-sm-3 col-form-label">Subject</label>
+                                     <div class="col-sm-9">
+                                       <input type="text"   class="form-control"  name="sub" onfocus="this.value=''"  id="inputSubject3" value="{{d.Subject}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputCharge3" class="col-sm-3 col-form-label">Class in charge</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="class1"  onfocus="this.value=''" class="form-control" id="inputCharge3" value="{{d.Class_in_charge}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputUsername3" class="col-sm-3 col-form-label">Username</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="username"   class="form-control" id="inputUsername3" value="{{d.UserName}}">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                                     <div class="col-sm-9">
+                                         <input type="text" name="password"   class="form-control" id="inputPassword3" value="{{d.Password}}">
+                                     </div>
+                                 </div>
+                                 <button type="submit" class="btn btn-primary m-4">Update</button>
+
+                             </form>
+                         </div>
+                         <div class="tab-pane fade border border-dark w-75 p-5" id="list-Note" role="tabpanel" aria-labelledby="list-Note-list">
+                             <form action="/note_upload" method="post" enctype="multipart/form-data">
+                                 {% csrf_token %}
+                                 <div class="row mb-3">
+                                     <label for="inputClass3" class="col-sm-4 col-form-label">Class</label>
+                                     <div class="col-sm-8">
+                                         <select name="class9" class="form-control dropdown" id="inputClass3">
+                                             <option selected disabled="true">Choose...</option>
+                                             <option>Plus one-Biology science</option>
+                                             <option>Plus one-Computer science</option>
+                                             <option>Plus one-Commerce</option>
+                                             <option>Plus one-Humanities</option>
+                                             <option>Plus two-Biology science</option>
+                                             <option>Plus two-Computer science</option>
+                                             <option>Plus two-Commerce</option>
+                                             <option>Plus two-Humanities</option>
+
+                                         </select>
+                                    </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputSubject5" class="col-sm-4 col-form-label">Subject</label>
+                                     <div class="col-sm-8">
+                                        <select name="subject9" class="form-control dropdown" id="inputSubject5">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>English</option>
+                                            <option>Malayalam</option>
+                                            <option>Hindi</option>
+                                            <option>Physics</option>
+                                            <option>Chemistry</option>
+                                            <option>Computer science</option>
+                                            <option>Biology</option>
+                                            <option>Mathematics</option>
+                                            <option>Statistics</option>
+                                            <option>Accountancy</option>
+                                            <option>Computer Application</option>
+                                            <option>Politics</option>
+                                            <option>Sociology</option>
+                                            <option>Geography</option>
+                                            <option>History</option>
+                                        </select>
+                                    </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                     <label for="inputChapter3" class="col-sm-4 col-form-label">Chapter</label>
+                                     <div class="col-sm-8">
+                                         <input name="chapter" type="text" class="form-control" id="inputChapter3">
+                                     </div>
+                                 </div>
+                                 <div class="row mb-3">
+                                    <label for="inputNote3" class="col-sm-4 col-form-label">Note</label>
+                                    <div class="col-sm-8">
+                                      <input name="note" type="file" class="form-control" id="inputNote3" accept=".pdf">
+                                    </div>
+                                 </div>
+                                 <button type="submit" class="btn btn-primary m-4">Upload</button>
+                             </form>
+                         </div>
+                         <div class="tab-pane fade border border-dark w-75 p-5" id="list-Assignment" role="tabpanel" aria-labelledby="list-Assignment-list">
+                            <form action="/assignment_upload" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <label for="inputClass4" class="col-sm-4 col-form-label">Class</label>
+                                    <div class="col-sm-8">
+                                        <select name="class2" class="form-control dropdown" id="inputClass4">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>Plus one-Biology science</option>
+                                            <option>Plus one-Computer science</option>
+                                            <option>Plus one-Commerce</option>
+                                            <option>Plus one-Humanities</option>
+                                            <option>Plus two-Biology science</option>
+                                            <option>Plus two-Computer science</option>
+                                            <option>Plus two-Commerce</option>
+                                            <option>Plus two-Humanities</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputSubject4" class="col-sm-4 col-form-label">Subject</label>
+                                    <div class="col-sm-8">
+                                        <select name="subject2" class="form-control dropdown" id="inputSubject4">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>English</option>
+                                            <option>Malayalam</option>
+                                            <option>Hindi</option>
+                                            <option>Physics</option>
+                                            <option>Chemistry</option>
+                                            <option>Computer science</option>
+                                            <option>Biology</option>
+                                            <option>Mathematics</option>
+                                            <option>Statistics</option>
+                                            <option>Accountancy</option>
+                                            <option>Computer Application</option>
+                                            <option>Politics</option>
+                                            <option>Sociology</option>
+                                            <option>Geography</option>
+                                            <option>History</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputAssignment3" class="col-sm-4 col-form-label">Assignment</label>
+                                    <div class="col-sm-8">
+                                      <input name="assignment" type="file" class="form-control" id="inputAssignment3" accept=".pdf">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-4">Upload</button>
+                            </form>
+                         </div>
+                         <div class="tab-pane fade border border-dark w-75 p-5" id="list-Attendance" role="tabpanel" aria-labelledby="list-Attendance-list">
+                            <form action="/attendance_upload" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <label for="inputClass6" class="col-sm-4 col-form-label">Class</label>
+                                    <div class="col-sm-8">
+                                        <select name="class3" class="form-control dropdown" id="inputClass6">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>Plus one-Biology science</option>
+                                            <option>Plus one-Computer science</option>
+                                            <option>Plus one-Commerce</option>
+                                            <option>Plus one-Humanities</option>
+                                            <option>Plus two-Biology science</option>
+                                            <option>Plus two-Computer science</option>
+                                            <option>Plus two-Commerce</option>
+                                            <option>Plus two-Humanities</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputMonth7" class="col-sm-4 col-form-label">Month</label>
+                                    <div class="col-sm-8">
+                                        <select name="month" class="form-control dropdown" id="inputMonth7">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>January</option>
+                                            <option>February</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>August</option>
+                                            <option>September</option>
+                                            <option>October</option>
+                                            <option>November</option>
+                                            <option>December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputAttendance3" class="col-sm-4 col-form-label">Attendance</label>
+                                    <div class="col-sm-8">
+                                      <input name="attendance" type="file" class="form-control" id="inputAttendance3" accept=".pdf">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-4">Upload</button>
+                            </form>
+                        </div>
+                         <div class="tab-pane fade border border-dark w-75 p-5" id="list-TimeTable" role="tabpanel" aria-labelledby="list-TimeTable-list">
+                            <form action="/timetable_upload" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row mb-3">
+                                    <label for="inputClass7" class="col-sm-4 col-form-label">Class</label>
+                                    <div class="col-sm-8">
+                                        <select name="class4" class="form-control dropdown" id="inputClass7">
+                                            <option selected disabled="true">Choose...</option>
+                                            <option>Plus one-Biology science</option>
+                                            <option>Plus one-Computer science</option>
+                                            <option>Plus one-Commerce</option>
+                                            <option>Plus one-Humanities</option>
+                                            <option>Plus two-Biology science</option>
+                                            <option>Plus two-Computer science</option>
+                                            <option>Plus two-Commerce</option>
+                                            <option>Plus two-Humanities</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputTimeTable3" class="col-sm-4 col-form-label">TimeTable</label>
+                                    <div class="col-sm-8">
+                                      <input name="timetable" type="file" class="form-control" id="inputTimeTable3" accept=".pdf">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-4">Upload</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade " id="list-student" role="tabpanel" aria-labelledby="list-student-list">
+                            <div class="table-container" style="margin:auto;padding-right:2px;padding-left:2px;">
+
+                                <table class="table table-bordered border-dark" style="text-align:left;width:100%; padding-right:2px;">
+                                    <thead style="font-size:14px;letter-spacing:0.35pz;opacity:1;padding-right:5px;vertical-align:top;background-color:#3c3f44;color:white;">
+                                        <tr>
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Photo</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">DOB</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Class</th>
+                                            <th scope="col">Guardian's Name</th>
+                                            <th scope="col">Phone Number</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Academic Year</th>
+                                            <th scope="col">Accept</th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="text-align:left;padding-left:2px;padding-right:2px; position:relative;font-size:12px;letter-spacing:0.35pz;">
+                                    {% for s in st %}
+                                        <tr>
+                                            <td style="text-align:left;">{{s.id}}</td>
+                                            <td style="text-align:left;"><img class="img-fluid rounded-circle" src="{{s.Photo.url}}"></td>
+                                            <td style="text-align:left;">{{s.FirstName}}</td>
+                                            <td style="text-align:left;">{{s.Address}}</td>
+                                            <td style="text-align:left;">{{s.Date_of_Birth}}</td>
+                                            <td style="text-align:left;">{{s.Gender}}</td>
+                                            <td style="text-align:left;">{{s.Class}}</td>
+                                            <td style="text-align:left;">{{s.Guardian_Name}}</td>
+                                            <td style="text-align:left;">{{s.PhoneNumber1}}<br>{{s.PhoneNumber2}}</td>
+                                            <td style="text-align:left;">{{s.Email}}</td>
+                                            <td style="text-align:left;">{{s.Academic_Year}}</td>
+                                            <td style="text-align:left;">
+                                                <a href="{% url 'accept' idd=s.id %}">Accept</a>
+                                            </td>
+                                            <td style="text-align:left;">
+                                                <a href="{% url 'reject' icc=s.id %}">Reject</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                     </div>
+                     </center>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+</body>
+</html>

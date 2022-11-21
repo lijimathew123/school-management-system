@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% extends 'theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jain heritage</title>
+
+</head>
+<body>
+ {% block content %}
+    <header>
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
+                    <img src="{% static 'image\IMG-20220527-WA0001.jpg' %}" height="70px" width="70px" style="border-radius:50%; margin-left:10px;">
+                    <a class="navbar-brand text-light fw-bold" href="#" style="font-family: system-ui;"><marquee direction="left">JAIN HERITAGE INTERNATIONAL SCHOOL</marquee></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-left:20%">
+                            <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#"><b>Home</b></a>
+                            </li>
+
+                            <li class="nav-item">
+                              <a class="nav-link" href="#About us"><b>About us</b></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#events"><b>Events</b></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="#footer"><b>Contact</b></a>
+                            </li>
+                               <li class="nav-item">
+                              <a class="nav-link " href="gallery"><b>Gallery</b></a>
+                            </li>
+                        </ul>
+                        <div class="text-right" style="padding-right:50px;">
+                            <form action="/teacher_student_reg">
+                                {% csrf_token %}
+                                <button type="submit">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="{% static 'image\caroselbuilding.jpg' %}" class="d-block w-100" alt="..." height="600px">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static 'image\caroselthought.jpg' %}" class="d-block w-100" alt="..." height="600px">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static 'image\carosellibrary.jpg' %}" class="d-block w-100" alt="..." height="600px">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static 'image\caroselsports.jpg' %}" class="d-block w-100" alt="..." height="600px">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static 'image\caroselconvocation.jpg' %}" class="d-block w-100" alt="..." height="600px">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+     <br><br><br><div>&nbsp;</div><br>
+    <section>
+        <div class="container">
+             <div class="row">
+                 <div class="col-md-4">
+                     <div class="imgAbt">
+                        <img  width="300" height="300" src="{% static 'image\abdul kalam2.jfif' %}">
+                     </div>
+                 </div>
+                <div class="col-md-8 p-5">
+                    <p><i>"Educationists should build the capacities of the spirit of inquiry, creativity, entrepreneurial and moral leadership among students and become their role model."</i></p>
+                    <br> <p style="text-align:right"><i><b>-Dr.A P J Abdul Kalam</b></i></p>
+                </div>
+             </div>
+        </div>
+    </section>
+    <br><br><br>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-section" id="About us">
+                        <h2>About Us Page</h2><br>
+                        <h5> Jain Heritage international school</h5>
+                        <p>The Anglo Indians School as been a leader in independent school education throughout cinnicinnati.<br>Our mission is to develop leaders of character across five pillars:academic ,athelatic,socail,spiritual and artistic.  .</p>
+                        <p>Educating leaders of character since 1890's.</p><br> <br>
+                        <button type="submit">view more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <div>&nbsp;&nbsp;</div><br>
+    <section>
+        <div class="container-fluid">
+            <h2 style="text-align:center">Our Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" >
+                      <img src="{% static 'image\director.jfif' %}" alt="Jane" style="width:100%" height="190px;">
+                      <div class="container">
+                        <h2>Antony sebastian</h2>
+                        <p class="title"><b>CEO & Founder</b></p>
+                        <p>A former president of Carl Zeiss, founded the German Forum with the goal of establishing Jain Heritage international school at Noida.</p>
+                       <br> <br><p>Email: antony@example.com</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="data:image/jpeg;base64,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" alt="Mike" style="width:100%" height="190px;">
+                        <div class="container">
+                            <h2>Stephen Marcose</h2>
+                            <p class="title"> <b>Director</b></p>
+                            <p>Stephen Marcose is the Director of jaint heritage internationalSchool.He has been teaching  for 12 years.He received his Bachelor’s degree in Psychology from Lincoln University, and his Masters degree from Springfield College. </p>
+                            <p>Email: stephen@example.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'image\sister2.jfif' %}" alt="John" style="width:100%" height="190px;" >
+                        <div class="container">
+                            <h2>Therasa</h2>
+                            <p class="title">principal</p>
+                            <p>Therasa of Jain Heritage School was awarded as the Best Principal 2017-18 by Edu Heal Foundation (EHF) and Bombay Stock Exchange Institute (BSEI) on 13 April 2018 at International Convention Center Mumbai. </p>
+                            <p>Email: therasa@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card-group">
+                    <div class="card col-md-4" style="background-image: url('{% static 'image\background-imageside.jpg' %}');">
+                        <div class="card-body" >
+                            <center><h5 class="card-title"><b><i>MISSION</i></b></h5></center>
+                            <p class="card-text"><i>To ensure value-added curriculum for articulated learning, goals and themes.To foster a love for learning and passion for ideas, values and ethics through appropriate challenges and opportunities</i></p>
+                        </div>
+                    </div>
+                    <div class="card col-md-4" style="background-image: url('{% static 'image\backgroundimage-center.jpg' %}');">
+                        <div class="card-body">
+                            <center><h5 class="card-title"><b><i>VISION</i></b></h5></center>
+                            <p class="card-text"><i>To integrate the learner, dreamer and critical thinker within the students and nurturing a creative communicator to excel in the world.</i></p>
+                        </div>
+                    </div>
+                    <div class="card col-md-4" style="background-image: url('{% static 'image\background-imageside.jpg' %}');">
+                        <div class="card-body">
+                            <center><h5 class="card-title"><b><i>OUR MOTTO</i></b></h5></center>
+                            <p class="card-text"> <i>Our motto is Strive and Succeed. It is an enduring phrase of words echoed over and over again, every single day.</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <br><br>
+    <section>
+        <div class="container">
+            <div class="row">
+                 <center><h3>COMING EVENTS</h3></center><br>
+                 <div class="center">
+                     <div class ="container p-5" id="events"style="background-image:url('{% static 'image\EVENT3.jpg' %}')">
+                         <h4> <a href="url" style="font-family: system-ui;"><marquee direction="right" width="100%" height="40px;" scrolldelay="100"  loop="">Alumini fest</marquee></a></h4>
+                         <h4>  <a href="url" style="font-family: system-ui;" ><marquee direction="left" width="100%" height="40px;" scrolldelay="100">NSS Inaugration</marquee></a></h4>
+                         <h4> <a href="url" style="font-family: system-ui;"><marquee direction="right"  width="100%" height="40px;" scrolldelay="100">Magazine presentation</marquee></a></h4>
+                         <h4> <a href="url" style="font-family: system-ui;" ><marquee direction="left" width="100%"  height="40px;" scrolldelay="100">State Athlet Meet</marquee></a></h4>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+     <div>&nbsp;&nbsp;&nbsp;</div><br><br>
+     <div class="container-fluid bg-secondary h-75" id="footer">
+         <div class="container"><br>
+             <div class="row">
+                <div class="col-md-5">
+                    <h4>CONTACT US</h4><br><br>
+                    <h5> Jain Heritage international School</h5>
+                    <p>G-13, Sec-3 <br>Noida, UP, 201301, India</p>
+                    <p class="w-100" style="text-size:3rem">jainheritageinternational@gmail.com</p>
+                    <p>PH:0491 908756</p>
+                    <p>PH:0491 908789</p>
+                </div>
+                <div class="col-md-3">
+                  <h4>FOLLOW US</h4><br><br>
+                    &nbsp;&nbsp;<a href="https://www.facebook.com/JHSBangalore/" class="fa fa-facebook"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://m.youtube.com/watch?v=T_sjYr5BxiY" class="fa fa-youtube"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/jhsbangaloreofficial/?hl=en" class="fa fa-instagram"></a>&nbsp;&nbsp;&nbsp;
+
+                    <a href="https://twitter.com/jhsbangalore?lang=en" class="fa fa-twitter"></a>
+                </div>
+                 <div class="col-md-4"><br><br>
+                  <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d754106.0992806656!2d77.19453598724454!3d28.597393302214474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1653586553539!5m2!1sen!2sin" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+    {% endblock %}
+</body>
+</html>

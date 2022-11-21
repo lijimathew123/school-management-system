@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% extends 'teacher_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jain heritage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    {% block content %}
+    <header class="bg-secondary">
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
+                  <img class="img-fluid rounded-circle p-2" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:80px">
+                  <div class="p-3" style="color:white">
+                      <h4>JAIN HERITAGE INTERNATIONAL SCHOOL</h4>
+                  </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <section style="background-image:url({% static 'image\pexels-thirdman-8926546.jpg' %})">
+    <div class="container">
+        <div class="row p-4">
+            <h1>Teacher Registration Form</h1>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 reg">
+                <form class="row g-3 needs-validation p-4"  method="post" action="/ad_home" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        <label>First Name</label>
+                        <input type="text"  name="fname" placeholder=" first name" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text"  name="lname" placeholder=" last name" required>
+                    </div><br>
+                    <div>
+                    <label>Photo</label>
+                        <input type="file" name="img" accept=".jpg, .jpeg">
+
+                    </div><br>
+                    <div >
+                        <label>Date of Birth</label>
+                        <input type="date"  name="age" placeholder="dd-mm-yyyy" required>
+                    </div><br>
+                     <div>
+                        <label >Gender</label>
+                        <input type="radio" name="gender" value="Female" > Female
+                        <input type="radio" name="gender" value="Male">  Male
+                        <input type="radio" name="gender" value="Others"> Others
+                    </div><br>
+                    <div >
+                        <label>Address</label>
+                        <textarea name="address"  rows="5" cols="25" placeholder=" address" required></textarea>
+                    </div><br>
+                    <div >
+                        <label  >State</label>
+
+                        <input type="text"  name="state"   placeholder=" state" required>
+                    </div><br>
+                    <div >
+                        <label>Country</label>
+                        <input type="text" name="country" placeholder=" country" required>
+                    </div><br>
+                    <di>
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder=" email id" required>
+                    </di><br>
+                    <div>
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" placeholder="Phone number" title="Error message" pattern="[1-9]{1}[0-9]{9}">
+                    </div><br>
+                     <div>
+                        <label>Qualification</label>
+                        <input type="text" name="qal" placeholder="Qualification" required>
+                    </div><br>
+                    <div>
+                        <label>Date of joining</label>
+                        <input type="date"   name="join" placeholder="dd-mm-yyyy" required>
+                    </div><br>
+                    <div>
+                        <label>Subject</label>
+                        <input type="text" name="sub" placeholder="Subject" required>
+                    </div><br>
+                    <div>
+                        <label>Class in Charge</label>
+                        <div class="col-sm-8">
+                            <select name="class1" class="form-control dropdown">
+                                <option selected disabled="true">Choose...</option>
+                                <option>Plus one-Biology science</option>
+                                <option>Plus one-Computer science</option>
+                                <option>Plus one-Commerce</option>
+                                <option>Plus one-Humanities</option>
+                                <option>Plus two-Biology science</option>
+                                <option>Plus two-Computer science</option>
+                                <option>Plus two-Commerce</option>
+                                <option>Plus two-Humanities</option>
+                            </select>
+                        </div>
+                    </div><br>
+                    <div >
+                        <label>User Name</label>
+                        <input type="text"  name="username" placeholder="User Name" required>
+                    </div><br>
+                    <div >
+                        <label>Password</label>
+                        <input type="password"  name="password" placeholder="Password" required>
+                    </div><br><br>
+                    <center>
+                        <button class="w-25 btn-primary" type="submit">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="w-25 btn-primary" type="reset" value="Reset">
+                    </center>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

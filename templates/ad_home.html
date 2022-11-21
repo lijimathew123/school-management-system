@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends 'ad_home_theme.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin home page</title>
+
+</head>
+<body>
+{% block content %}
+    <header class="bg-secondary">
+        <div class="row p-3">
+            <div class="col-12">
+                <nav class="navbar navbar-dark bg-secondary">
+                    <div class="container-fluid">
+                        <img class="img-fluid rounded-circle" src="{% static 'image\IMG-20220527-WA0001.jpg' %}" style="width:5em">
+                        <form class="d-flex" role="search">
+                          <a class="nav-link bg-light" href="/teacher_reg">Teacher Registration</a>
+                        </form>
+                        <form class="d-flex" role="search">
+                          <a class="nav-link bg-light" href="/logout">Log Out</a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <center>
+                    <div class="col-12 p-5">
+                        <table class="table table-bordered border-dark w-75" style="text-align:center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">DOB</th>
+                                    <th scope="col">Qualification</th>
+                                    <th scope="col">Date of joining</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Class in Charge</th>
+                                    <th scope="col">Phone number</th>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for c in tc %}
+                                <tr>
+                                    <td>{{c.id}}</td>
+                                    <td>{{c.FirstName}}</td>
+                                    <td>{{c.LastName}}</td>
+                                    <td>{{c.Address}}</td>
+                                    <td>{{c.Email}}</td>
+                                    <td>{{c.Gender}}</td>
+                                    <td>{{c.Date_of_Birth}}</td>
+                                    <td>{{c.Qualification}}</td>
+                                    <td>{{c.Date_of_joining}}</td>
+                                    <td>{{c.Subject}}</td>
+                                    <td>{{c.Class_in_charge}}</td>
+                                    <td>{{c.PhoneNumber}}</td>
+                                    <td>
+                                        <form action="{% url 'delete' c.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="submit" value="Delete">
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>
